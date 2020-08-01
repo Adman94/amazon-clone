@@ -18,7 +18,7 @@ function Home() {
                 />
                 <Product 
                 id="12321341"
-                title="Cracking the Coding Interview: 189 Programming Questions and Solutions 6th Edition"
+                title="Cracking the Coding Interview: 189 Programming Questions and Solutions 6th Edition by Gayle Laakmann McDowell (Author)"
                 price={20.17}
                 rating={5}
                 image="https://images-na.ssl-images-amazon.com/images/I/51l5XzLln+L._SX348_BO1,204,203,200_.jpg"
