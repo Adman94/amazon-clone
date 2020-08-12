@@ -5,6 +5,8 @@ import Header from './Header';
 import Home from './Home';
 import Checkout from './Checkout';
 import Login from './Login';
+import Returns from './Returns';
+import Prime from './Prime';
 
 function App() {
   return (
@@ -16,7 +18,16 @@ function App() {
             <Checkout />
           </Route>
           <Route path="/login">
+            <Header />
             <Login />
+          </Route>
+          <Route path="/returns">
+          <Header />
+            <Returns />
+          </Route>
+          <Route path="/prime">
+          <Header />
+            <Prime />
           </Route>
           {/* This is the default route */}
           <Route path="/">
