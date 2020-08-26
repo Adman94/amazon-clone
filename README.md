@@ -1,4 +1,9 @@
 # Amazon Web App Clone using React.
+![](public/ac1.png)
+
+<hr/> 
+
+![](public/ac2.png)
 
 ## Available Scripts
 
