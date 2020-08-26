@@ -1,7 +1,12 @@
 # Amazon Web App Clone using React.
+
+<hr/>
+
 ![](public/ac1.png)
 
 <hr/> 
+
+## Deployed with Firebase: (https://clone-2660c.web.app/)
 
 ![](public/ac2.png)
 
