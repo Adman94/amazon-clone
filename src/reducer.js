@@ -1,18 +1,5 @@
 export const initialState = {
-    basket: [{
-        id: "37292947",
-        title: "Apple iPad Pro (12.9-inch, Wi-Fi + Cellular, 256GB) - Space Gray (4th Generation)",
-        price: 1249.99,
-        rating: 5,
-        image: "https://images-na.ssl-images-amazon.com/images/I/81Pi4nhjlwL._AC_SL1500_.jpg"
-    },
-    {
-        id: "37292947",
-        title: "Apple iPad Pro (12.9-inch, Wi-Fi + Cellular, 256GB) - Space Gray (4th Generation)",
-        price: 1249.99,
-        rating: 5,
-        image: "https://images-na.ssl-images-amazon.com/images/I/81Pi4nhjlwL._AC_SL1500_.jpg"
-    }],
+    basket: [],
     user: null
 };
 
@@ -33,7 +20,7 @@ const reducer = (state, action) => {
             // we cloned the basket
             let newBasket = [...state.basket];
             const index = state.basket.findIndex((basketItem) => basketItem.id === action.id)
-            if(index >= 0) {
+            if (index >= 0) {
                 // item exists in basket, remove it...
                 newBasket.splice(index, 1)
             } else {
@@ -45,7 +32,13 @@ const reducer = (state, action) => {
                 ...state,
                 basket: newBasket,
             }
-                
+
+        case "SET_USER":
+            return {
+                ...state,
+                user: action.user
+            }
+
         default:
             return state;
     }

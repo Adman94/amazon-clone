@@ -2,14 +2,14 @@ import React from 'react'
 import './Product.css'
 import { useStateValue } from './StateProvider';
 
-function Product({id, title, image, price, rating}) {
-    const  [dispatch] = useStateValue();
+function Product({ id, title, image, price, rating }) {
+    const [{ basket }, dispatch] = useStateValue();
     const addToBasket = () => {
         dispatch({
             type: 'ADD_TO_BASKET',
             item: {
                 // id: id -> id -> same if key and value identical
-                id: id, 
+                id: id,
                 title: title,
                 image: image,
                 price: price,
@@ -28,10 +28,10 @@ function Product({id, title, image, price, rating}) {
                 <div className="product__rating">
                     {
                         Array(rating)
-                        .fill()
-                        .map((_) => (
-                            <span role="img" aria-label="star">⭐</span>
-                        ))
+                            .fill()
+                            .map((_) => (
+                                <span role="img" aria-label="star">⭐</span>
+                            ))
                     }
                 </div>
             </div>

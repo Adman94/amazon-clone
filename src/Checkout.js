@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { useStateValue } from './StateProvider';
 import './Checkout.css';
 import CheckoutProduct from './CheckoutProduct';
 import SubTotal from './SubTotal';
+import FlipMove from 'react-flip-move';
 
 function Checkout() {
-    const [{ basket }] = useStateValue()
+    const [{ basket, user }] = useStateValue()
     return (
         <div className="checkout">
             <div className="checkout__left">
@@ -16,22 +17,26 @@ function Checkout() {
                         <p>You have no items in your basket. To buy one or more items, click, "Add to basket" next to the item</p>
                     </div>
                 ) : (
-                    <div>
-                        <h2 className="checkout__title">Your Shopping Basket</h2>
-                        {/* List out all of the Checkout Products */}
-                        {basket?.map(item => {
-                            console.log(item);
-                            return (
-                            <CheckoutProduct
-                                id={item.id}
-                                title={item.title}
-                                image={item.image}
-                                price={item.price}
-                                rating={item.rating}
-                            />
-                        )})}
-                    </div>
-                )}
+                        <div>
+                            <h2 className="checkout__title">Your Shopping Basket</h2>
+                            {/* List out all of the Checkout Products */}
+                            <FlipMove>
+                                {basket?.map(item => {
+                                    console.log(item);
+                                    return (
+                                        <CheckoutProduct
+                                            key={item.id}
+                                            id={item.id}
+                                            title={item.title}
+                                            image={item.image}
+                                            price={item.price}
+                                            rating={item.rating}
+                                        />
+                                    )
+                                })}
+                            </FlipMove>
+                        </div>
+                    )}
             </div>
             {basket.length > 0 && (
                 <div className="checkout__right">
