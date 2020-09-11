@@ -1,0 +1,23 @@
+.footer {
+  height: 400px;
+  display: flex;
+  background-color: #232f3e;
+  position: sticky;
+  justify-content: space-evenly;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.footer > div {
+  margin-top: 50px;
+}
+
+.footer__title {
+  margin-bottom: 10px;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+div > p {
+  margin-bottom: 8px;
+}

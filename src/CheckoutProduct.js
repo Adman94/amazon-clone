@@ -1,12 +1,23 @@
 import React, { forwardRef } from 'react'
 import "./CheckoutProduct.css"
 import { useStateValue } from './StateProvider';
+import Noty from "noty";
+import "../node_modules/noty/lib/noty.css"
+import "../node_modules/noty/lib/themes/mint.css"
 
 const CheckoutProduct = forwardRef(({ id, title, image, price, rating }, ref) => {
     const [{ basket }, dispatch] = useStateValue();
     console.log(id, title, image, price, rating);
     const removeFromBasket = () => {
         // remove item from basket...
+        new Noty({
+            type: "success",
+            layout: "topRight",
+            timeout: 1000,
+            text: `<div class="noty__container"><img src=${image}> ${title} has been removed from basket</div>`,
+            closeWith: ["click"]
+        }).show();
+
         dispatch({
             type: "REMOVE_FROM_BASKET",
             id: id,

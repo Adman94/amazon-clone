@@ -9,6 +9,9 @@ import Returns from './Returns';
 import Prime from './Prime';
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import HeaderTwo from './HeaderTwo';
+import Footer from './Footer';
+
 
 
 function App() {
@@ -43,23 +46,31 @@ function App() {
         <Switch>
           <Route path="/checkout">
             <Header />
+            <HeaderTwo />
             <Checkout />
+            <Footer />
           </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/returns">
             <Header />
+            <HeaderTwo />
             <Returns />
+            <Footer />
           </Route>
           <Route path="/prime">
             <Header />
+            <HeaderTwo />
             <Prime />
+            <Footer />
           </Route>
           {/* This is the default route */}
           <Route path="/">
             <Header />
+            <HeaderTwo />
             <Home />
+            <Footer />
           </Route>
         </Switch>
       </div>
