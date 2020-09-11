@@ -5,7 +5,7 @@ import Noty from "noty";
 import "../node_modules/noty/lib/noty.css"
 import "../node_modules/noty/lib/themes/mint.css"
 
-const CheckoutProduct = forwardRef(({ id, title, image, price, rating }, ref) => {
+const CheckoutProduct = forwardRef(({ id, title, image, price, rating, hideButton }, ref) => {
     const [{ basket }, dispatch] = useStateValue();
     console.log(id, title, image, price, rating);
     const removeFromBasket = () => {
@@ -39,7 +39,9 @@ const CheckoutProduct = forwardRef(({ id, title, image, price, rating }, ref) =>
                             <span role="img" aria-label="star">🌟</span>
                         ))}
                 </div>
-                <button onClick={id && removeFromBasket}>Remove from basket</button>
+                {!hideButton && (
+                    <button onClick={id && removeFromBasket}>Remove from basket</button>
+                )}
             </div>
         </div>
     )

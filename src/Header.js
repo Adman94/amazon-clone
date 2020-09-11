@@ -21,6 +21,7 @@ function Header() {
             <Link to="/">
                 <img className="header__logo" src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" />
             </Link>
+
             <div className="header__search">
                 <input type="text" className="header__searchInput" />
                 <SearchIcon className="header__searchIcon" />
@@ -29,12 +30,13 @@ function Header() {
             <div className="header__nav">
                 <Link to={!user && '/login'} className="header__link">
                     <div onClick={handleAuthenticaton} className="header__option">
+                        {/* { user?.email || 'Guest' } */}
                         <span className="header__optionLineOne">Hello, {!user ? 'Guest' : user.email}</span>
                         <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
                     </div>
                 </Link>
 
-                <Link to="/returns" className="header__link">
+                <Link to="/orders" className="header__link">
                     <div className="header__option">
                         <span className="header__optionLineOne">Returns</span>
                         <span className="header__optionLineTwo">& Orders</span>
