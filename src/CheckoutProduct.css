@@ -21,11 +21,19 @@
 }
 .checkoutProduct__rating {
     display: flex;
+    padding-bottom: 10px;
+}
+.checkoutProduct__rating .MuiSvgIcon-root{
+    color: #f0c14b;;
 }
 .checkoutProduct__info > button {
-    background-color: #f0c14b;
-    border: 1px solid;
-    margin-top: 10px;
+    background: #f0c14b;
+    border: none;
+    border-radius: 2px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    outline: none;
 }

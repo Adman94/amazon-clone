@@ -7,7 +7,21 @@ import './SubTotal.css';
 
 function SubTotal() {
     const history = useHistory();
-    const [{ basket }] = useStateValue();
+    const [{ basket, user }] = useStateValue();
+
+    const handleProcessButtonClick = () => {
+        if (basket.length === 0) {
+            alert("Please select a product to continue checkout");
+            return;
+        } else if (!user) {
+            alert("Please Login!");
+            return;
+        } else {
+            history.push("/payment");
+            // alert(`Do you wants to buy ${items.length} items?`);
+        }
+    };
+
     return (
         <div className="subtotal">
             <CurrencyFormat
@@ -27,7 +41,7 @@ function SubTotal() {
                 thousandSeparator={true}
                 prefix={"$"}
             />
-            <button onClick={e => history.push('/payment')}>Proceed to Checkout</button>
+            <button onClick={handleProcessButtonClick} disabled={basket.length === 0}>Proceed to Checkout</button>
         </div>
     )
 }

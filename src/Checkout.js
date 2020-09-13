@@ -5,6 +5,8 @@ import CheckoutProduct from './CheckoutProduct';
 import SubTotal from './SubTotal';
 import { Zoom } from '@material-ui/core';
 import FlipMove from 'react-flip-move';
+import { Link } from "react-router-dom";
+import emptyCart from './img/emptyCart.png';
 
 function Checkout() {
     const [{ basket, user }] = useStateValue()
@@ -15,15 +17,24 @@ function Checkout() {
                     <img className="checkout_ad" src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/AmazonPay/LPAOffers/April/Prime/Store/V2/LPA501_1500x250.jpg" alt="" />
                 </Zoom>
                 {basket?.length === 0 ? (
-                    <div>
-                        <h2>Your Shopping basket is empty</h2>
-                        <p>You have no items in your basket. To buy one or more items, click, "Add to basket" next to the item</p>
+                    <div className='empty_cart'>
+                        <img src={emptyCart} alt='' />
+                        <h2>You Cart Is Empty</h2>
+                        <Link to='/' className='add-to-cart'>
+                            Add to Cart
+                    </Link>
                     </div>
                 ) : (
                         <Zoom in={true}>
                             <div>
-                                <h2>Hello, {!user ? 'Guest' : user.email}</h2>
-                                <h2 className="checkout__title">Your Shopping Basket</h2>
+                                <div className="checkout__title">
+                                    <h2>Hello, {user
+                                        ? user.email
+                                            .substring(0, user.email.lastIndexOf("@"))
+                                            .toUpperCase()
+                                        : "Guest"}</h2>
+                                    <h3 >Your Shopping Basket</h3>
+                                </div>
                                 {/* List out all of the Checkout Products */}
                                 <FlipMove>
                                     {basket?.map(item => {

@@ -5,11 +5,11 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useStateValue } from './StateProvider';
 import { auth } from "./firebase";
+import Hamburger from "./Hamburger";
 
 function Header() {
     // state destructured: {basket: []}
     const [{ basket, user }, dispatch] = useStateValue()
-    console.log(basket);
 
     const handleAuthenticaton = () => {
         if (user) {
@@ -18,6 +18,7 @@ function Header() {
     }
     return (
         <nav className="header">
+            <Hamburger className='menu' />
             <Link to="/">
                 <img className="header__logo" src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" />
             </Link>
@@ -31,7 +32,11 @@ function Header() {
                 <Link to={!user && '/login'} className="header__link">
                     <div onClick={handleAuthenticaton} className="header__option">
                         {/* { user?.email || 'Guest' } */}
-                        <span className="header__optionLineOne">Hello, {!user ? 'Guest' : user.email}</span>
+                        <span className="header__optionLineOne">Hello, {user
+                            ? user.email
+                                .substring(0, user.email.lastIndexOf("@"))
+                                .toUpperCase()
+                            : "Guest"}</span>
                         <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
                     </div>
                 </Link>
@@ -54,7 +59,6 @@ function Header() {
                     <div className="header__optionBasket">
 
                         <ShoppingCartIcon />
-
                         <span className="header__optionLineTwo header__basketCount">{basket?.length}</span>
                     </div>
                 </Link>

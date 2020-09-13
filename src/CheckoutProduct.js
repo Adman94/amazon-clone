@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 import "./CheckoutProduct.css"
 import { useStateValue } from './StateProvider';
+import StarIcon from '@material-ui/icons/Star';
 import Noty from "noty";
 import "../node_modules/noty/lib/noty.css"
 import "../node_modules/noty/lib/themes/mint.css"
@@ -29,18 +30,18 @@ const CheckoutProduct = forwardRef(({ id, title, image, price, rating, hideButto
             <div className="checkoutProduct__info">
                 <p className="checkoutProduct__title">{title}</p>
                 <p className="checkoutProduct__price">
-                    <small>$</small>
+                    <medium>$ </medium>
                     <strong>{price}</strong>
                 </p>
                 <div className="checkoutProduct__rating">
                     {Array(rating)
                         .fill()
                         .map((_, i) => (
-                            <span role="img" aria-label="star">🌟</span>
+                            <StarIcon />
                         ))}
                 </div>
                 {!hideButton && (
-                    <button onClick={id && removeFromBasket}>Remove from basket</button>
+                    <button onClick={id && removeFromBasket}>Remove from cart</button>
                 )}
             </div>
         </div>

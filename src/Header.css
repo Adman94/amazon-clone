@@ -41,6 +41,7 @@
 .header__basketCount {
     margin-left: 10px;
     margin-right: 10px;
+    transition:.1s
 }
 .header__search {
     display: flex;
@@ -57,4 +58,3 @@
     height: 22px !important;
     background-color: #cd9042;
 }
-
